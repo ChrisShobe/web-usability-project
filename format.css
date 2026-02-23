@@ -40,3 +40,9 @@ button:hover {
   background-color: #ad9a91;
 }
 
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
