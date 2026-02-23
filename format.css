@@ -13,6 +13,18 @@ body {
   margin: 0px;
 }
 
+.doble-gird {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  background-color: #8a7c73;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  width: 90%;
+}
+
 button {
   font-family:Georgia, 'Times New Roman', Times, serif; /*feel free to change*/
   padding: 10px 16px;
@@ -27,3 +39,4 @@ button {
 button:hover {
   background-color: #ad9a91;
 }
+
