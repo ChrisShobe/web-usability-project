@@ -6,12 +6,21 @@
 </head>
 
 <body>
+    <button class="back-button" onclick="goBack()">← Back</button>
+    <button style="right: 20px" style="position: absolute" style="top: 20px" onclick="flashbang()">Flashbang</button>
     <h1>TITLE - Inputs</h1>
     <div class="doble-gird">
         <h1>Kill me</h1>
         <h1>me first</h1>
     </div>
 
-
-    <script></script>
+    
+    <script>
+        function goBack() {
+            window.location.href = "home.html";
+        }
+        function flashbang() {
+            window.location.href = "flashbang.html";
+        }
+    </script>
 </body>
