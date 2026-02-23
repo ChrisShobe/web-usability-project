@@ -37,7 +37,6 @@ button {
 }
 
 button:hover {
-<<<<<<< HEAD
   background-color: #ad9a91;
 }
 
@@ -45,10 +44,6 @@ button:hover {
   position: absolute;
   top: 20px;
   left: 20px;
-}
-
-=======
-  background-color: #da7280;
 }
 
 h1 {
@@ -60,4 +55,3 @@ p {
   color: #003a79;
   font-size: 18px;
 }
->>>>>>> d32460140fc3a54abe1aa7711da420f0f699fd7f
