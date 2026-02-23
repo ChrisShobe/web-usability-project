@@ -46,6 +46,12 @@ button:hover {
   left: 20px;
 }
 
+.flashbang-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 h1 {
   color: #003a79;
   font-size: 36px;
