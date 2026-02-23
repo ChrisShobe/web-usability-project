@@ -1,0 +1,29 @@
+/* i chose the ugliest colors possible so
+you have to change them at some point*/
+
+body {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  background-color: #635851;
+  text-align: center;
+  padding: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0px;
+}
+
+button {
+  font-family:Georgia, 'Times New Roman', Times, serif; /*feel free to change*/
+  padding: 10px 16px;
+  margin-top: 10px;
+  border: black 2px;
+  border-radius: 8px;
+  background-color: #81716a; /*god please change this color*/
+  color:black; 
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ad9a91;
+}
