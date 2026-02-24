@@ -12,42 +12,102 @@
     <text>
         <h1>TITLE - Inputs</h1>
     
-
         <div class="doble-gird">
             <div>
                 <h2>Words to avoid</h2>
-                <h3>Word 1</h3>
-                <input id="avoid1" name="word">
-                <h3>Word 2</h3>
-                <input id="avoid2" name="wordword">
-                <h3>Word 3</h3>
-                <input id="avoid3" name="wordwordword">
+                <input id="avoid1">
+                <input id="avoid2">
+                <input id="avoid3">
+                <input id="avoid4">
+                <input id="avoid5">
             </div>
             <div>
                 <h2>Words to include</h2>
-                <h3>Word 1</h3>
-                <input id="include1" name="word">
-                <h3>Word 2</h3>
-                <input id="include2" name="wordword">
-                <h3>Word 3</h3>
-                <input id="include3" name="wordwordword">
+                <input id="include1">
+                <input id="include2">
+                <input id="include3">
+                <input id="include4">
+                <input id="include5">
             </div>
         </div>
     
     
         <h1>This is where the prompt question goes...</h1>
+        <button onclick="resetWords()">Reset</button>
         <button onclick="recording()">Next</button>
+        
     </text>
 
     <script>
         function goBack() {
+            saveWords();
             window.location.href = "home.html";
         }
         function flashbang() {
+            saveWords();
             window.location.href = "flashbang.html";
         }
         function recording() {
+            saveWords();
             window.location.href = "recording.html";
         }
+        function resetWords() {
+            const avoid1 = document.getElementById("avoid1");
+            const avoid2 = document.getElementById("avoid2");
+            const avoid3 = document.getElementById("avoid3");
+            const avoid4 = document.getElementById("avoid4");
+            const avoid5 = document.getElementById("avoid5");
+            const include1 = document.getElementById("include1");
+            const include2 = document.getElementById("include2");
+            const include3 = document.getElementById("include3");
+            const include4 = document.getElementById("include4");
+            const include5 = document.getElementById("include5");
+
+            avoid1.value = "";
+            avoid2.value = "";
+            avoid3.value = "";
+            avoid4.value = "";
+            avoid5.value = "";
+            include1.value = "";
+            include2.value = "";
+            include3.value = "";
+            include4.value = "";
+            include5.value = "";
+        }
+        function saveWords() {
+            const words = {
+                avoid1: document.getElementById("avoid1").value,
+                avoid2: document.getElementById("avoid2").value,
+                avoid3: document.getElementById("avoid3").value,
+                avoid4: document.getElementById("avoid4").value,
+                avoid5: document.getElementById("avoid5").value,
+                include1: document.getElementById("include1").value,
+                include2: document.getElementById("include2").value,
+                include3: document.getElementById("include3").value,
+                include4: document.getElementById("include4").value,
+                include5: document.getElementById("include5").value
+            };
+
+            localStorage.setItem("savedWords", JSON.stringify(words));
+            
+        }
+        function loadWords() {
+            const saved = localStorage.getItem("savedWords");
+            if (!saved) return;
+            const words = JSON.parse(saved);
+
+            document.getElementById("avoid1").value = words.avoid1 || "";
+            document.getElementById("avoid2").value = words.avoid2 || "";
+            document.getElementById("avoid3").value = words.avoid3 || "";
+            document.getElementById("avoid4").value = words.avoid4 || "";
+            document.getElementById("avoid5").value = words.avoid5 || "";
+            document.getElementById("include1").value = words.include1 || "";
+            document.getElementById("include2").value = words.include2 || "";
+            document.getElementById("include3").value = words.include3 || "";
+            document.getElementById("include4").value = words.include4 || "";
+            document.getElementById("include5").value = words.include5 || "";
+        }
+
+        loadWords();
     </script>
 </body>
