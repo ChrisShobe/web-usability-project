@@ -1,6 +1,3 @@
-/* i chose the ugliest colors possible so
-you have to change them at some point*/
-
 body {
   font-family:Georgia, 'Times New Roman', Times, serif;
   background-color: #fdc482;
@@ -11,7 +8,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0px;
-}
+} 
 
 .text {
   display: grid;
@@ -98,4 +95,57 @@ p {
   font-size: 16px;
   margin-bottom: 30px;
   color: #666;
+}
+
+a:link {
+  color: #003a79;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #003a79;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:hover {
+  color:#da7280;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #fdc482;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #6a72a3;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #003a79;
+  text-align: center;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #003a79;
+  color: #6a72a3;
+}
+
+section {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #003a79;
+  border-radius: 10px;
+  background-color: #6a72a3;
 }
