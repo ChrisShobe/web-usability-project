@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="text">
+        <button class="back-button" onclick="goBack()">← Back</button>
         <h1>Recording Submission</h1>
         
         <div id="promptSection">
@@ -77,6 +78,10 @@
             initializeStyles();
             loadPrompt();
         });
+
+        function goBack() {
+            window.location.href = "input.html";
+        }
 
         function initializeStyles() {
             // Video container styling
