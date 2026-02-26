@@ -63,10 +63,12 @@ button:hover {
 h1 {
   color: #003a79;
   font-size: 36px;
+  text-align: center;
 }
 
 h2 {
   color: #003a79;
+  text-align: center;
 }
 
 p {
@@ -178,4 +180,42 @@ section {
   border-radius: 10px;
   background-color: #8d93ba;
   width: 50%;
+}
+
+.sb{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  padding: 10px 16px;
+  margin-top: 10px;
+  background-color: #003a79;
+  color:#8d93ba; 
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.sb:hover {
+  background-color: #fdc482;
+  color: #003a79;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.sb:active {
+  color: #fdc482;
+  background-color: #da7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */           /* Optional: Centers in the full viewport height */
 }
