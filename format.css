@@ -156,12 +156,24 @@ a:active {
   color: #6a72a3;
 }
 
+.topnav a {
+    color: #fdc482
+}
+
 section {
   margin: 10px;
   padding: 10px;
   border: 1px solid #003a79;
   border-radius: 10px;
   background-color: #6a72a3;
+}
+
+section p {
+    color: #ffe6c9;
+}
+
+section h2 {
+    color: #fdc482;
 }
 
 /* Feedback page */
