@@ -161,3 +161,21 @@ section {
   border-radius: 10px;
   background-color: #6a72a3;
 }
+
+/* Feedback page */
+.words {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  
+}
+
+.words section {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #003a79;
+  border-radius: 10px;
+  background-color: #8d93ba;
+  width: 50%;
+}

@@ -493,6 +493,9 @@
             console.log('Redirecting to feedback.html');
             // For demo, just show that it's navigating
             document.getElementById('submittedScreen').innerHTML = '<p>Redirecting to feedback page...</p>';
+            setTimeout(function() {
+                window.location.href = 'feedback.html';
+            }, 1500);
         }
 
         function showStatus(message, type) {
