@@ -165,22 +165,34 @@ section {
 }
 
 /* Feedback page */
-.words {
+
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cards-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 90%;
-  
+  margin: 15px;
 }
 
-.words section {
+.cards-wrapper section {
   margin: 10px;
   padding: 10px;
   border: 1px solid #003a79;
   border-radius: 10px;
   background-color: #8d93ba;
-  width: 50%;
+  width: 40%;
+  height: 350px;
 }
+
+
 
 .sb{
   font-family:Georgia, 'Times New Roman', Times, serif;
