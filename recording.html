@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="format.css">
 </head>
 <body>
-    <div class="text">
+    <div class="text text-recording">
         <button class="back-button" onclick="goBack()">← Back</button>
         <h1>Recording Submission</h1>
         
@@ -84,185 +84,8 @@
         }
 
         function initializeStyles() {
-            // Video container styling
-            const videoContainer = document.getElementById('videoContainer');
-            videoContainer.style.position = 'relative';
-            videoContainer.style.width = '100%';
-            videoContainer.style.backgroundColor = '#000';
-            videoContainer.style.borderRadius = '8px';
-            videoContainer.style.overflow = 'hidden';
-            videoContainer.style.marginBottom = '20px';
-            videoContainer.style.aspectRatio = '4/3';
-            videoContainer.style.display = 'none'; // Hide until recording starts
-
-            // Text container styling for spacing
-            const textContainer = document.querySelector('.text');
-            textContainer.style.marginTop = '40px';
-            textContainer.style.marginBottom = '40px';
-            textContainer.style.overflowY = 'auto';
-            textContainer.style.maxHeight = '90vh';
-            textContainer.style.paddingTop = '20px';
-            textContainer.style.paddingBottom = '20px';
-            textContainer.style.backgroundColor = '#fdc482';
-            textContainer.style.borderRadius = '20px';
-            textContainer.style.minWidth = '400px';
-            textContainer.style.maxWidth = '900px';
-            textContainer.style.width = '90%';
-
-            // Video styling
-            const video = document.getElementById('videoPreview');
-            video.style.width = '100%';
-            video.style.height = '100%';
-            video.style.display = 'block';
-            video.style.objectFit = 'cover';
-            video.style.transform = 'scaleX(-1)'; // Mirror effect
-            video.style.backgroundColor = '#000';
-
-            // Timer display styling
-            const timerDisplay = document.getElementById('timerDisplay');
-            timerDisplay.style.position = 'absolute';
-            timerDisplay.style.top = '15px';
-            timerDisplay.style.right = '15px';
-            timerDisplay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-            timerDisplay.style.color = '#fff';
-            timerDisplay.style.padding = '8px 12px';
-            timerDisplay.style.borderRadius = '4px';
-            timerDisplay.style.fontFamily = 'monospace';
-            timerDisplay.style.fontSize = '16px';
-            timerDisplay.style.fontWeight = 'bold';
-
-            // Recording indicator styling
-            const recordingIndicator = document.getElementById('recordingIndicator');
-            recordingIndicator.style.position = 'absolute';
-            recordingIndicator.style.top = '15px';
-            recordingIndicator.style.left = '15px';
-            recordingIndicator.style.display = 'none';
-            recordingIndicator.style.alignItems = 'center';
-            recordingIndicator.style.gap = '8px';
-            recordingIndicator.style.backgroundColor = 'rgba(255, 0, 0, 0.9)';
-            recordingIndicator.style.color = 'white';
-            recordingIndicator.style.padding = '8px 12px';
-            recordingIndicator.style.borderRadius = '4px';
-            recordingIndicator.style.fontWeight = 'bold';
-
-            // Recording dot styling
-            const recordingDot = document.getElementById('recordingDot');
-            recordingDot.style.width = '10px';
-            recordingDot.style.height = '10px';
-            recordingDot.style.backgroundColor = '#fff';
-            recordingDot.style.borderRadius = '50%';
-            recordingDot.style.animation = 'blink 1s infinite';
-
-            // Add blink animation
-            const style = document.createElement('style');
-            style.innerHTML = '@keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0.3; } }';
-            document.head.appendChild(style);
-
-            // Controls section styling
-            const controlsSection = document.getElementById('controlsSection');
-            controlsSection.style.display = 'flex';
-            controlsSection.style.gap = '15px';
-            controlsSection.style.marginBottom = '20px';
-            controlsSection.style.flexWrap = 'wrap';
-
-            // Status message styling
-            const statusMessage = document.getElementById('statusMessage');
-            statusMessage.style.padding = '12px';
-            statusMessage.style.borderRadius = '4px';
-            statusMessage.style.marginBottom = '20px';
-            statusMessage.style.textAlign = 'center';
-            statusMessage.style.fontWeight = 'bold';
-            statusMessage.style.display = 'none';
-
-            // Instructions styling
-            const instructions = document.getElementById('instructions');
-            instructions.style.backgroundColor = '#fff3cd';
-            instructions.style.border = '1px solid #ffeaa7';
-            instructions.style.padding = '15px';
-            instructions.style.borderRadius = '4px';
-            instructions.style.marginBottom = '20px';
-            instructions.style.color = '#856404';
-
-            // Prompt section styling
-            const promptSection = document.getElementById('promptSection');
-            promptSection.style.backgroundColor = '#e8f4f8';
-            promptSection.style.padding = '20px';
-            promptSection.style.borderLeft = '4px solid #2196F3';
-            promptSection.style.marginBottom = '30px';
-            promptSection.style.borderRadius = '4px';
-
-            // Prompt text styling
-            const promptText = document.getElementById('promptText');
-            promptText.style.fontSize = '18px';
-            promptText.style.color = '#2196F3';
-            promptText.style.fontStyle = 'italic';
-
-            // Audio visualizer styling
-            const audioVisualizerContainer = document.getElementById('audioVisualizerContainer');
-            audioVisualizerContainer.style.position = 'absolute';
-            audioVisualizerContainer.style.bottom = '0';
-            audioVisualizerContainer.style.left = '0';
-            audioVisualizerContainer.style.width = '100%';
-            audioVisualizerContainer.style.height = '40px';
-            audioVisualizerContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-            audioVisualizerContainer.style.display = 'flex';
-            audioVisualizerContainer.style.alignItems = 'center';
-            audioVisualizerContainer.style.justifyContent = 'center';
-            audioVisualizerContainer.style.gap = '2px';
-            audioVisualizerContainer.style.display = 'none';
-
-            const audioVisualizer = document.getElementById('audioVisualizer');
-            audioVisualizer.style.display = 'flex';
-            audioVisualizer.style.gap = '2px';
-            audioVisualizer.style.height = '100%';
-            audioVisualizer.style.alignItems = 'center';
-            audioVisualizer.style.width = '100%';
-            audioVisualizer.style.justifyContent = 'center';
-
-            // Generate prompt button styling
-            const generatePromptBtn = document.getElementById('generatePromptBtn');
-            if (generatePromptBtn) {
-                generatePromptBtn.style.backgroundColor = '#6a72a3';
-                generatePromptBtn.style.color = '#003a79';
-                generatePromptBtn.style.padding = '8px 16px';
-                generatePromptBtn.style.borderRadius = '8px';
-                generatePromptBtn.style.border = 'none';
-                generatePromptBtn.style.cursor = 'pointer';
-                generatePromptBtn.style.fontSize = '14px';
-                generatePromptBtn.style.fontFamily = 'Georgia, Times New Roman, Times, serif';
-                generatePromptBtn.addEventListener('mouseover', () => {
-                    generatePromptBtn.style.backgroundColor = '#ad9a91';
-                });
-                generatePromptBtn.addEventListener('mouseout', () => {
-                    generatePromptBtn.style.backgroundColor = '#6a72a3';
-                });
-            }
-
-            // Submitted screen styling
-            const submittedScreen = document.getElementById('submittedScreen');
-            submittedScreen.style.padding = '40px 20px';
-            submittedScreen.style.minHeight = '300px';
-            submittedScreen.style.display = 'none';
-
-            // Next button styling
-            const nextBtn = document.getElementById('nextBtn');
-            if (nextBtn) {
-                nextBtn.style.backgroundColor = '#6a72a3';
-                nextBtn.style.color = '#003a79';
-                nextBtn.style.padding = '12px 30px';
-                nextBtn.style.fontSize = '16px';
-                nextBtn.style.border = '#003a79 2px';
-                nextBtn.style.borderRadius = '8px';
-                nextBtn.style.cursor = 'pointer';
-                nextBtn.style.fontFamily = 'Georgia, Times New Roman, Times, serif';
-                nextBtn.style.fontWeight = 'bold';
-                nextBtn.addEventListener('mouseover', () => {
-                    nextBtn.style.backgroundColor = '#ad9a91';
-                });
-                nextBtn.addEventListener('mouseout', () => {
-                    nextBtn.style.backgroundColor = '#6a72a3';
-                });
-            }
+            // All styles are now defined in format.css
+            // This function is kept for backward compatibility
         }
 
         let audioContext;
@@ -283,11 +106,7 @@
                 const barCount = 30;
                 for (let i = 0; i < barCount; i++) {
                     const bar = document.createElement('div');
-                    bar.style.width = '3px';
-                    bar.style.minHeight = '2px';
-                    bar.style.backgroundColor = '#4CAF50';
-                    bar.style.borderRadius = '2px';
-                    bar.style.flex = '1';
+                    bar.classList.add('audio-bar');
                     visualizer.appendChild(bar);
                 }
 
@@ -501,24 +320,12 @@
         function showStatus(message, type) {
             const statusDiv = document.getElementById('statusMessage');
             statusDiv.textContent = message;
+            statusDiv.className = '';
             statusDiv.style.display = 'none';
             
             if (message) {
                 statusDiv.style.display = 'block';
-                
-                if (type === 'success') {
-                    statusDiv.style.backgroundColor = '#d4edda';
-                    statusDiv.style.color = '#155724';
-                    statusDiv.style.border = '1px solid #c3e6cb';
-                } else if (type === 'error') {
-                    statusDiv.style.backgroundColor = '#f8d7da';
-                    statusDiv.style.color = '#721c24';
-                    statusDiv.style.border = '1px solid #f5c6cb';
-                } else if (type === 'info') {
-                    statusDiv.style.backgroundColor = '#d1ecf1';
-                    statusDiv.style.color = '#0c5460';
-                    statusDiv.style.border = '1px solid #bee5eb';
-                }
+                statusDiv.classList.add(type);
             }
         }
 

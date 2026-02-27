@@ -6,6 +6,7 @@
    <body>
       <div class="feedback-container">
          <button class="back-button" onclick="goBack()">← Back</button>
+         <button class="home-button" onclick="goHome()">🏠 Home</button>
          <h1>Feedback</h1>
          <div class="cards-wrapper">
             <section class="card" style="display: flex; flex-direction: column;">
@@ -51,8 +52,10 @@
 
        <script>
         function goBack() {
-            //saveWords();
             window.location.href = "recording.html";
+        }
+        function goHome() {
+            window.location.href = "home.html";
         }
         </script>
    </body>
