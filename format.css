@@ -200,14 +200,15 @@ section h2 {
 }
 
 .cards-wrapper section {
-  margin: 0;
-  padding: 20px;
+  margin: 20px;
+  padding: 30px;
   border: 1px solid #0d0628;
   border-radius: 10px;
   background-color: #9a348e;
   flex: 1;
   min-width: 300px;
   max-width: 400px;
+  height: 350px;
 }
 
 .card {
@@ -236,19 +237,12 @@ section h2 {
   margin-bottom: 10px;
 }
 
-.used-word {
-  display: inline-block;
-  background-color: rgba(255, 255, 255, 0.2);
+.used-word, .avoid-word {
   color: #fca17d;
   padding: 5px 10px;
   border-radius: 4px;
-  margin: 5px 5px 5px 0;
-  background-color: #8d93ba;
-  width: 40%;
-  height: 350px;
+  margin: 10px;
 }
-
-
 
 .sb {
   font-family:Georgia, 'Times New Roman', Times, serif;
