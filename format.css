@@ -229,7 +229,11 @@ section h2 {
 }
 
 .word-list {
-  margin-top: 15px;
+  margin-top: 5px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  align-items: center;
 }
 
 .word-list h4 {
@@ -371,7 +375,7 @@ section h2 {
 
 #instructions {
   background-color: #da627d;
-  border: 1px solid #f9dbbd;
+  /* border: 1px solid #f9dbbd; */
   padding: 20px;
   border-radius: 4px;
   margin-bottom: 20px;
@@ -391,8 +395,8 @@ section h2 {
 #promptSection {
   background-color: #da627d;
   padding: 20px;
-  border-left: 4px solid #f9dbbd;
-  margin-bottom: 30px;
+  /* border-left: 4px solid #f9dbbd; */
+  margin-bottom: 20px;
   border-radius: 4px;
 }
 
@@ -506,8 +510,8 @@ section h2 {
 
   .text-recording {
     padding: 20px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     min-width: unset;
     max-width: unset;
   }

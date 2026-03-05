@@ -1,6 +1,6 @@
 <!-- PAGE 2 BTW (COLE) --> 
 <head>
-  <title>INPUTS</title>
+  <title>Talk Back: Setup</title>
   <link rel="stylesheet" href="format.css">
   <!--<link rel="icon" type="images/photo.png" href="images/photo.png">-->
 </head>
@@ -10,7 +10,7 @@
     <!--<button class="flashbang-button" onclick="flashbang()">Flashbang</button>-->
     
     <text>
-        <h2>Inputs</h2>
+        <h1>Setup</h1>
         <h3>Please enter the words that you would like to avoid using and the words you would like to use more.</h3>
     
         <div class="doble-gird">
@@ -76,37 +76,41 @@
             include5.value = "";
         }
         function saveWords() {
+            const avoidWords = [
+                document.getElementById("avoid1").value,
+                document.getElementById("avoid2").value,
+                document.getElementById("avoid3").value,
+                document.getElementById("avoid4").value,
+                document.getElementById("avoid5").value
+            ];
+
+            const includeWords = [
+                document.getElementById("include1").value,
+                document.getElementById("include2").value,
+                document.getElementById("include3").value,
+                document.getElementById("include4").value,
+                document.getElementById("include5").value
+            ];
+
+            const avoidCount = avoidWords.filter(word => word.trim() !== "").length;
+            const includeCount = includeWords.filter(word => word.trim() !== "").length;
+
             const words = {
-                avoid1: document.getElementById("avoid1").value,
-                avoid2: document.getElementById("avoid2").value,
-                avoid3: document.getElementById("avoid3").value,
-                avoid4: document.getElementById("avoid4").value,
-                avoid5: document.getElementById("avoid5").value,
-                include1: document.getElementById("include1").value,
-                include2: document.getElementById("include2").value,
-                include3: document.getElementById("include3").value,
-                include4: document.getElementById("include4").value,
-                include5: document.getElementById("include5").value
+                avoid1: avoidWords[0],
+                avoid2: avoidWords[1],
+                avoid3: avoidWords[2],
+                avoid4: avoidWords[3],
+                avoid5: avoidWords[4],
+                include1: includeWords[0],
+                include2: includeWords[1],
+                include3: includeWords[2],
+                include4: includeWords[3],
+                include5: includeWords[4],
+                avoidCount: avoidCount,
+                includeCount: includeCount
             };
 
             localStorage.setItem("savedWords", JSON.stringify(words));
-            
-        }
-        function loadWords() {
-            const saved = localStorage.getItem("savedWords");
-            if (!saved) return;
-            const words = JSON.parse(saved);
-
-            document.getElementById("avoid1").value = words.avoid1 || "";
-            document.getElementById("avoid2").value = words.avoid2 || "";
-            document.getElementById("avoid3").value = words.avoid3 || "";
-            document.getElementById("avoid4").value = words.avoid4 || "";
-            document.getElementById("avoid5").value = words.avoid5 || "";
-            document.getElementById("include1").value = words.include1 || "";
-            document.getElementById("include2").value = words.include2 || "";
-            document.getElementById("include3").value = words.include3 || "";
-            document.getElementById("include4").value = words.include4 || "";
-            document.getElementById("include5").value = words.include5 || "";
         }
 
         loadWords();

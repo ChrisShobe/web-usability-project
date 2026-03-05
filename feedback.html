@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <title>Talk Back: Feedback</title>
       <link rel="stylesheet" href="format.css">
    </head>
    <body>
@@ -8,40 +9,47 @@
          <button class="back-button" onclick="goBack()">← Back</button>
          <button class="home-button" onclick="goHome()">🏠 Home</button>
          <h1>Feedback</h1>
+         <h3> Great job! </h3>
          <div class="cards-wrapper">
             <section class="card" style="display: flex; flex-direction: column;">
                <div class="words-header" style="margin-bottom: 10px;">
-                  <h3>Target Words</h3>
-                  <p>Words you should use (4 of 5 used)</p>
+                  <h3>Words to Avoid</h3>
+                  <p id="avoid-numbers">Words you should avoid (4 of 4 avoided)</p>
                </div>
                <div class="words-list">
-                  <h3 style="margin-bottom: 25px;">Words Used: </h3>
-                  <div class="group">
-                     <span class="used-word">Word 1</span>
-                     <span class="used-word">Word 2</span>
-                     <span class="used-word">Word 3</span>
-                     <span class="used-word">Word 4</span>
+                  <h3 style="margin-bottom: 15px;">Successfully Avoided: </h3>
+                  <div class="word-list">
+                     <span class="used-word" id="avoid1"></span>
+                     <span class="used-word" id="avoid2"></span>
+                     <span class="used-word" id="avoid3"></span>
+                     <span class="used-word" id="avoid4"></span>
+                     <span class="used-word" id="avoid5"></span>
                   </div>
 
                </div>
             </section>
             <section class="card" style="display: flex; flex-direction: column;">
                <div class="words-header" style="margin-bottom: 10px;">
-                  <h3>Words to Avoid</h3>
-                  <p>Words you should avoid (4 of 4 avoided)</p>
+                  <h3>Target Words</h3>
+                  <p id="include-numbers">Words you should use (4 of 5 used)</p>
                </div>
-               <div class="word-list">
-                  <h3 style="margin-bottom: 25px;">Successfully Avoided: </h3>
-                  <span class="avoid-word">Word 1</span>
-                  <span class="avoid-word">Word 2</span>
-                  <span class="avoid-word">Word 3</span>
-                  <span class="avoid-word">Word 4</span>
+               <div class="words-list">
+                  <h3 style="margin-bottom: 15px;">Words Used: </h3>
+                  <div class="word-list">
+                     <span class="used-word" id="include1"></span>
+                     <span class="used-word" id="include2"></span>
+                     <span class="used-word" id="include3"></span>
+                     <span class="used-word" id="include4"></span>
+                     <span class="used-word" id="include5"></span>
+                  </div>
                </div>
             </section>
 
          </div>
+         
 
       </div>
+      
        
       <script>
       function goBack() {
@@ -50,6 +58,39 @@
       function goHome() {
          window.location.href = "home.html";
       }
+      function loadWords() {
+         const saved = localStorage.getItem("savedWords");
+         if (!saved) return;
+
+         const words = JSON.parse(saved);
+         
+         document.getElementById("avoid1").textContent =
+            words.avoid1 ? `${words.avoid1} - used 0 times` : "";
+         document.getElementById("avoid2").textContent =
+            words.avoid2 ? `${words.avoid2} - used 0 times` : "";
+         document.getElementById("avoid3").textContent =
+            words.avoid3 ? `${words.avoid3} - used 0 times` : "";
+         document.getElementById("avoid4").textContent =
+            words.avoid4 ? `${words.avoid4} - used 0 times` : "";
+         document.getElementById("avoid5").textContent =
+            words.avoid5 ? `${words.avoid5} - used 0 times` : "";
+
+         document.getElementById("include1").textContent =
+            words.include1 ? `${words.include1} - used ${Math.floor(Math.random() * (4)) + 1} times` : "";
+         document.getElementById("include2").textContent =
+            words.include2 ? `${words.include2} - used ${Math.floor(Math.random() * (4)) + 1} times` : "";
+         document.getElementById("include3").textContent =
+            words.include3 ? `${words.include3} - used ${Math.floor(Math.random() * (4)) + 1} times` : "";
+         document.getElementById("include4").textContent =
+            words.include4 ? `${words.include4} - used ${Math.floor(Math.random() * (4)) + 1} times` : "";
+         document.getElementById("include5").textContent =
+            words.include5 ? `${words.include5} - used ${Math.floor(Math.random() * (4)) + 1} times` : "";
+
+         document.getElementById("avoid-numbers").textContent = `Words you should avoid (${words.avoidCount} of ${words.avoidCount})`;
+         document.getElementById("include-numbers").textContent = `Words you should use (${words.includeCount} of ${words.includeCount})`;
+      }
+
+      loadWords();
       </script>
    </body>
 </html>
